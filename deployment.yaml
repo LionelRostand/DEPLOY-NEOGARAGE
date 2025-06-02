@@ -1,28 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: neotech-apps
+  name: neogarage
   namespace: neotech
 spec:
   replicas: 2  # Nombre d'instances
   selector:
     matchLabels:
-      app: neotech-apps
+      app: neogarage
   template:
     metadata:
       labels:
-        app: neotech-apps
+        app: neogarage
     spec:
       nodeSelector:
         kubernetes.io/arch: amd64 
       containers:
-        - name: neotech-app
-          image: lionel1109/neotech-apps:latest
+        - name: neogarage
+          image: lionel1109/neogarage:latest
           ports:
             - containerPort: 3000  # Port d'écoute de l'application
-          env:
-            - name: STORAGE_URL
-              value: http://neotech-storage:5000  # URL interne pour accéder à l'API neotech-storage
           resources:
             requests:
               memory: "256Mi"    # Mémoire minimum demandée
