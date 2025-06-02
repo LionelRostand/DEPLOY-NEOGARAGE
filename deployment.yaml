@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: neotech-apps
+  namespace: neotech
+spec:
+  replicas: 2  # Nombre d'instances
+  selector:
+    matchLabels:
+      app: neotech-apps
+  template:
+    metadata:
+      labels:
+        app: neotech-apps
+    spec:
+      nodeSelector:
+        kubernetes.io/arch: amd64 
+      containers:
+        - name: neotech-app
+          image: lionel1109/neotech-apps:latest
+          ports:
+            - containerPort: 3000  # Port d'écoute de l'application
+          env:
+            - name: STORAGE_URL
+              value: http://neotech-storage:5000  # URL interne pour accéder à l'API neotech-storage
+          resources:
+            requests:
+              memory: "256Mi"    # Mémoire minimum demandée
+              cpu: "100m"       # 0.1 CPU minimum demandé
+            limits:
+              memory: "512Mi"    # Mémoire maximale allouée
+              cpu: "500m"       # 0.5 CPU maximal alloué

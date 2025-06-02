@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: neotech-service
+  namespace : neotech
+spec:
+  type: NodePort  # Expose l’application sur un port du nœud
+  selector:
+    app: neotech-apps
+  ports:
+    - protocol: TCP
+      port: 443 # Port du service interne
+      port: 80 # Port du service interne
+      targetPort: 3008  # Port du container
+      nodePort: 30001 # Port exposé sur le nœud (doit être entre 30000-32767)
