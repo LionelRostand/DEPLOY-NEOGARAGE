@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: neogarage
-  namespace: neotech
+  namespace: neogarage
 spec:
   replicas: 2  # Nombre d'instances
   selector:
