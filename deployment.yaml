@@ -4,7 +4,7 @@ metadata:
   name: neogarage
   namespace: neogarage
 spec:
-  replicas: 2  # Nombre d'instances
+  replicas: 1  # Nombre d'instances
   selector:
     matchLabels:
       app: neogarage
