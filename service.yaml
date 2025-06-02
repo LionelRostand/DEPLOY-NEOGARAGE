@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: neotech-service
+  name: neogarage-service
   namespace : neotech
 spec:
   type: NodePort  # Expose l’application sur un port du nœud
   selector:
-    app: neotech-apps
+    app: neogarage
   ports:
     - protocol: TCP
       port: 443 # Port du service interne
