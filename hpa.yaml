@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: neorh-hpa
+  name: neogarage-hpa
   namespace: neorh
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: neorh
+    name: neogarage
   minReplicas: 1
   maxReplicas: 5
   metrics:
