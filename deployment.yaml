@@ -19,7 +19,7 @@ spec:
         - name: neogarage
           image: lionel1109/neogarage:latest
           ports:
-            - containerPort: 3000  # Port d'écoute de l'application
+            - containerPort: 443  # Port d'écoute de l'application
           resources:
             requests:
               memory: "256Mi"    # Mémoire minimum demandée
