@@ -12,6 +12,10 @@ spec:
     metadata:
       labels:
         app: neogarage
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "443"
+        prometheus.io/path: "/metrics"
     spec:
       nodeSelector:
         kubernetes.io/arch: amd64 
